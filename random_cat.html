@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>KotNaoborot</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-image: url(&quot;assets/img/bg.png&quot;);">
+    <div class="container-fluid fixed-bottom" style="margin-bottom: 20px;">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-4">
+                <h4 class="text-center text-dark bg-light border rounded-circle border-light shadow rubberBand animated" style="padding: 30px;margin-bottom: 25px;">Выбери кота, в которого мог превратиться кот слева:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 offset-sm-1 text-center align-self-end"><img class="img-fluid" data-bs-hover-animate="bounce" src="assets/img/default.png"></div>
+            <div class="col-sm-3 offset-sm-2 text-center align-self-end" id="cat-1"></div>
+            <div class="col-sm-3 text-center align-self-end" id="cat-2"></div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var cats = [
+                '<a href="choice-1.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/1.png"></a>',
+                '<a href="choice-2.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/2.png"></a>',
+                '<a href="choice-3.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/3.png"></a>',
+                '<a href="choice-4.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/4.png"></a>',
+                '<a href="choice-5.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/5.png"></a>',
+                '<a href="choice-6.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/6.png"></a>',
+                '<a href="choice-7.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/7.png"></a>',
+                '<a href="choice-8.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/8.png" width="80%"></a>',
+                '<a href="choice-9.html"><img class="img-fluid" data-bs-hover-animate="shake" src="assets/img/9.png" width="65%"></a>',
+            ];
+
+            function getRandom(arr, n) {
+                var result = new Array(n),
+                    len = arr.length,
+                    taken = new Array(len);
+                if (n > len)
+                    throw new RangeError("getRandom: more elements taken than available");
+                while (n--) {
+                    var x = Math.floor(Math.random() * len);
+                    result[n] = arr[x in taken ? taken[x] : x];
+                    taken[x] = --len in taken ? taken[len] : len;
+                }
+                return result;
+            }
+
+            rand_cat = getRandom(cats,2);
+            $("#cat-1").html(rand_cat[0]);
+            $("#cat-2").html(rand_cat[1]);
+        });
+    </script>
+</body>
+
+</html>
