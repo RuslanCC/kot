@@ -19,7 +19,7 @@
 
   <icon src="icon.png" />
 
-  <preference name="phonegap-version" value="cli-8.1.1" />
+  <preference name="phonegap-version" value="cli-9.0.0" />
 
   <preference name="Fullscreen" value="true" />
   <preference name="Orientation" value="landscape" />
